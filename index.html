@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>按需加载</title>
+	<script src="animate.js"></script>
+	<script src="index.js"></script>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	body{
+		width: 100%;
+		height: 2000px;
+	}
+	header{
+		width: 100%;
+		height: 200px;
+		background: #ff0036;
+	}
+	h3{
+		font-size: 30px;
+		text-align: center;
+		line-height: 200px;
+	}
+	.floor{
+		width: 1226px;
+		height: 800px;
+		margin: 20px auto;
+		border: 1px solid #333;
+		/* background: #666; */
+	}
+	.floor img{
+		display: block;
+		width: 234px;
+		height: 300px;
+		float: left;
+		margin: 30px auto;
+
+	}
+	.footer{
+		width: 100%;
+		height: 200px;
+		background: #ff0036;
+	}
+	.aside{
+		width: 50px;
+		height: 80px;
+		position: fixed;
+		top: 70%;
+		left: 20px;
+		margin-left: 20px;
+		margin-top: -40px;
+	}
+	.aside li{
+		width: 20px;
+		height: 20px;
+		border: 1px solid #0085d0;
+		text-align: center;
+
+	}
+</style>
+<body>
+<header><h3>开始</h3></header>
+	<div class="floor">
+		<img imgPath="img/23.png" alt="">
+		<img imgPath="img/24.png" alt="">
+		<img imgPath="img/25.png" alt="">
+		<img imgPath="img/26.png" alt="">
+		<img imgPath="img/27.jpg" alt="">
+		<img imgPath="img/b1.jpg" alt="">
+		<img imgPath="img/b2.jpg" alt="">
+		<img imgPath="img/b3.jpg" alt="">
+		<img imgPath="img/b4.jpg" alt="">
+		<img imgPath="img/b5.jpg" alt="">
+	</div>
+	<div class="floor">
+		<img imgPath="img/23.png" alt="">
+		<img imgPath="img/24.png" alt="">
+		<img imgPath="img/25.png" alt="">
+		<img imgPath="img/26.png" alt="">
+		<img imgPath="img/27.jpg" alt="">
+		<img imgPath="img/b1.jpg" alt="">
+		<img imgPath="img/b2.jpg" alt="">
+		<img imgPath="img/b3.jpg" alt="">
+		<img imgPath="img/b4.jpg" alt="">
+		<img imgPath="img/b5.jpg" alt="">
+	</div>
+	<div class="floor">
+		<img imgPath="img/23.png" alt="">
+		<img imgPath="img/24.png" alt="">
+		<img imgPath="img/25.png" alt="">
+		<img imgPath="img/26.png" alt="">
+		<img imgPath="img/27.jpg" alt="">
+		<img imgPath="img/b1.jpg" alt="">
+		<img imgPath="img/b2.jpg" alt="">
+		<img imgPath="img/b3.jpg" alt="">
+		<img imgPath="img/b4.jpg" alt="">
+		<img imgPath="img/b5.jpg" alt="">
+	</div>
+	<div class="floor">
+		<img imgPath="img/23.png" alt="">
+		<img imgPath="img/24.png" alt="">
+		<img imgPath="img/25.png" alt="">
+		<img imgPath="img/26.png" alt="">
+		<img imgPath="img/27.jpg" alt="">
+		<img imgPath="img/b1.jpg" alt="">
+		<img imgPath="img/b2.jpg" alt="">
+		<img imgPath="img/b3.jpg" alt="">
+		<img imgPath="img/b4.jpg" alt="">
+		<img imgPath="img/b5.jpg" alt="">
+	</div>
+	<div class="floor">
+		<img imgPath="img/23.png" alt="">
+		<img imgPath="img/24.png" alt="">
+		<img imgPath="img/25.png" alt="">
+		<img imgPath="img/26.png" alt="">
+		<img imgPath="img/27.jpg" alt="">
+		<img imgPath="img/b1.jpg" alt="">
+		<img imgPath="img/b2.jpg" alt="">
+		<img imgPath="img/b3.jpg" alt="">
+		<img imgPath="img/b4.jpg" alt="">
+		<img imgPath="img/b5.jpg" alt="">
+	</div>
+	<div class="footer"><h3>结束</h3></div>
+	<ul class="aside">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+<!-- 	<script>
+		window.onload = function(){
+			// 楼层出现
+			// innerHight + scrollTop >= offsetTop
+			let aside = document.querySelectorAll('.aside li');
+			console.log(aside);
+			let ch = innerHeight;
+			// 元素到页面的左上角
+			let floor = document.querySelectorAll('.floor');
+			let floorArr = [];
+			let color = ['red','yellow','blue','green','pink'];
+			let flag = true;
+
+			floor.forEach(element=>{
+				floorArr.push(element.offsetTop);
+			})
+
+			aside.forEach((element,index)=>{
+				element.onclick = function(){
+					for(let i=0;i<aside.length;i++){
+						aside[i].style.background = 'none';
+					}
+					flag = false;
+					element.style.background = color[index];
+
+					animate(document.body,{scrollTop:floorArr[index]},function(){flag = true;})
+				}
+			})
+
+			window.onscroll = function(){
+				if(!flag){
+					return;
+				}
+				let scrolltop = document.body.scrollTop;  //小数
+				// console.log(document.documentElement.scrollTop);  //0
+				floorArr.forEach((value,index)=>{
+					if(scrolltop+ch>=value+300){
+
+						for(let i=0;i<aside.length;i++){
+						aside[i].style.background = 'none';
+						}
+						aside[index].style.background = color[index];
+
+						let imgs = floor[index].getElementsByTagName('img');
+						for(let i=0;i<imgs.length;i++){
+							imgs[i].src = imgs[i].getAttribute('imgPath');
+						}
+					}
+				})
+			}
+		}
+	</script> -->
+</body>
+</html>
